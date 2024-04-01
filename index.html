@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="CodeHim">
+      <title>
+         My ToDO's
+      </title>
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="./css/style.css">
+      <!-- Demo CSS (No need to include it into your project) -->
+      <link rel="stylesheet" href="./css/demo.css">
+      <link rel='stylesheet'
+         href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css'>
+      <link rel='stylesheet'
+         href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+      <link rel='stylesheet'
+         href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.css'>
+      <link rel='stylesheet'
+         href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.3.0/main.min.css'>
+   </head>
+   <body>
+      <header class="cd__intro">
+         <h4 class="">My ToDo's</h4>
+      </header>
+      
+      <!--$%adsense%$-->
+      <main class="cd__main">
+         <div class="container">
+            <div class="row d-flex">
+               <div class="col 8">
+                  <div id='calendar'></div>
+               </div>
+               <div class="col-4">
+                  <div class="d-flex gap-3 eventbtn" style="margin-bottom: -12px;">
+                     <!-- Add Event Button -->
+                     <button type="button" class="btn add" id="add-event-button"
+                        data-bs-toggle="modal" data-bs-target="#form">Add
+                        Checklist</button>
+
+                     <!-- Leave Button -->
+                     <button type="button" class="btn add" id="leave-button"
+                        data-bs-toggle="modal" data-bs-target="#leave-modal">Add
+                        Leave</button>
+
+                     <!-- Clear All Button -->
+                     <button type="button" class="btn add"
+                        id="clear-all-button">Clear All</button>
+                  </div>
+                  <hr />
+                  <!-- Search Bar -->
+                  <div class="indicatordiv">
+                     <div class>
+                        <span class><i class="fas fa-calendar"></i></span>
+                     </div>
+                     <div class="input-group">
+                        <input type="text" class="form-control"
+                           placeholder="Search for checklist">
+                     </div>
+
+                     <!-- Color Indicators -->
+                     <div class="color-indicators">
+                        <div class="color-item">
+                           <div class="color-square"
+                              style="background-color: #47c7a7;"></div>
+                           <span class="color-name">Low</span>
+                        </div>
+                        <div class="color-item">
+                           <div class="color-square"
+                              style="background-color: #4c72fb;"></div>
+                           <span class="color-name">Medium</span>
+                        </div>
+                        <div class="color-item">
+                           <div class="color-square"
+                              style="background-color: #e25879;"></div>
+                           <span class="color-name">High</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div
+                     class="checklistdiv  border rounded p-2 mt-4 align-items-center">
+                     <div class="d-flex gap-2">
+                        <div class="icon close-icon"><i
+                              class="fas fa-times-circle"></i></div>
+                        <div class="color-square mt-1"
+                           style="background-color: #e25879;"></div>
+                        <p
+                           class="border rounded-pill bg-dark text-white p-1">Checklist01</p>
+                        <div class="d-flex gap-2 ms-auto">
+                           <div class="todo-text">Todo</div>
+                           <!-- Hamburger Icon -->
+                           <div class="hamburger-icon mt-1">
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                           </div>
+                        </div>
+                     </div>
+                     <hr />
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              Sub Checklist(c1)
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              Sub Checklist(c1)
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+                     <div class="mt-3">
+                        <a href="#add-task"
+                           class="icon plus-icon text-decoration-none text-muted">
+                           <i class="fas fa-plus"></i> Add an Subchecklist
+                        </a>
+                     </div>
+
+                  </div>
+
+                  <div
+                     class="checklistdiv  border rounded p-2 mt-4 align-items-center">
+                     <div class="d-flex gap-2">
+                        <div class="icon close-icon"><i
+                              class="fas fa-times-circle"></i></div>
+                        <div class="color-square mt-1"
+                           style="background-color: #e2dfdf;"></div>
+                        <p
+                           class="border rounded-pill para-text text-white p-1">redesign</p>
+                        <div class="d-flex gap-2 ms-auto">
+                           <div class="todo-text">Todo</div>
+                           <!-- Hamburger Icon -->
+                           <div class="hamburger-icon mt-1">
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                           </div>
+                        </div>
+                     </div>
+                     <hr />
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              ABC
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              DEF
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              GHI
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+                     <div class="mt-3">
+                        <a href="#add-task"
+                           class="icon plus-icon text-decoration-none text-muted">
+                           <i class="fas fa-plus"></i> Add an Subchecklist
+                        </a>
+                     </div>
+
+                  </div>
+
+                  <div
+                     class="checklistdiv  border rounded p-2 mt-4 align-items-center">
+                     <div class="d-flex gap-2">
+                        <div class="icon close-icon"><i
+                              class="fas fa-times-circle"></i></div>
+                        <div class="color-square mt-1"
+                           style="background-color: #e2dfdf;"></div>
+                        <p
+                           class="border rounded-pill text-white p-1 para-text1">explore</p>
+                        <div class="d-flex gap-2 ms-auto">
+                           <div class="todo-text">Todo</div>
+                           <!-- Hamburger Icon -->
+                           <div class="hamburger-icon mt-1">
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                              <span class="hamburger-bar"></span>
+                           </div>
+                        </div>
+                     </div>
+                     <hr />
+                     <div class="d-flex justify-content-between">
+                        <div class="form-check">
+                           <input class="form-check-input" type="radio"
+                              name="flexRadioDefault" id="flexRadioDefault1">
+                           <label class="form-check-label"
+                              for="flexRadioDefault1">
+                              Kashmir
+                           </label>
+                        </div>
+                        <div class="d-flex gap-2">
+                           <div class="icon delete-icon"><i
+                                 class="fas fa-trash-alt"></i></div>
+
+                           <!-- Attach Icon -->
+                           <div class="icon attach-icon"><i
+                                 class="fas fa-paperclip"></i></div>
+
+                           <!-- Edit Icon -->
+                           <div class="icon edit-icon"><i
+                                 class="fas fa-edit"></i></div>
+
+                           <!-- Three Dots Icon -->
+                           <div class="icon three-dots-icon"><i
+                                 class="fas fa-ellipsis-v"></i></div>
+
+                           <!-- View Icon -->
+                           <div class="icon view-icon"><i
+                                 class="fas fa-eye"></i></div>
+
+                        </div>
+                     </div>
+
+                     <div class="mt-3">
+                        <a href="#add-task"
+                           class="icon plus-icon  text-decoration-none text-muted">
+                           <i class="fas fa-plus"></i> Add an Subchecklist
+                        </a>
+                     </div>
+
+                  </div>
+
+                  <!-- Add modal -->
+
+                  <div class="modal fade edit-form" id="form" tabindex="-1"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header border-bottom-0">
+                              <h5 class="modal-title" id="modal-title">Add
+                                 Event</h5>
+                              <button type="button" class="btn-close"
+                                 data-bs-dismiss="modal"
+                                 aria-label="Close"></button>
+                           </div>
+
+                           <form id="myForm">
+                              <div class="modal-body">
+                                 <div class="alert alert-danger " role="alert"
+                                    id="danger-alert" style="display: none;">
+                                    End date should be greater than start date.
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="event-title">Name <span
+                                                class="text-danger">*</span></label>
+                                          <input type="text" class="form-control"
+                                             id="event-title"
+                                             placeholder="Enter event name" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="start-date">Start date <span
+                                                class="text-danger">*</span></label>
+                                          <input type="date" class="form-control"
+                                             id="start-date" placeholder="start-date"
+                                             required>
+                                       </div>  
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="end-date">End date - <small
+                                                class="text-muted">Optional</small></label>
+                                          <input type="date" class="form-control"
+                                             id="end-date" placeholder="end-date">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                          <div class="form-group">
+                                             <label for="description">Description <small
+                                                   class="text-muted"></small></label>
+                                             <input type="text" class="form-control"
+                                                id="description" placeholder="">
+                                          </div>
+                                        
+                                    </div>
+
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="status">Status <small
+                                                class="text-muted"></small></label>
+                                          <input type="text" class="form-control"
+                                             id="status" placeholder="">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                          <div class="form-group">
+                                             <label for="priority"
+                                             class="form-label">Priority</label>
+                                          <select class="form-select" id="priority"
+                                             required>
+                                             <option value selected disabled>Select
+                                                Priority type</option>
+                                             <option value="low">Low</option>
+                                             <option
+                                                value="medium">Medium</option>
+                                                <option
+                                                value="high">High</option>
+                                          </select>
+                                          </div>
+                                        
+                                    </div>
+
+                                 </div>
+                                
+                                 <div class="form-group">
+                                    <label for="category">category</label>
+                                    <input type="text" class="form-control"
+                                       id="category" >
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="comment">Comment</label>
+                                    <input type="text" class="form-control"
+                                       id="comment" >
+                                 </div>
+                              </div>
+                              <div
+                                 class="modal-footer border-top-0 d-flex justify-content-center">
+                                 <button type="submit" class="btn btn-success"
+                                    id="submit-button">Submit</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Leave Modal -->
+                  <!-- Leave Modal -->
+                  <div class="modal fade" id="leave-modal" tabindex="-1"
+                     role="dialog" aria-labelledby="leave-modal-title"
+                     aria-hidden="true">
+                     <div class="modal-dialog modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title"
+                                 id="leave-modal-title">Apply for Leave</h5>
+                              <button type="button" class="btn-close"
+                                 data-bs-dismiss="modal"
+                                 aria-label="Close"></button>
+                           </div>
+                           <!-- Leave modal body -->
+                           <div class="modal-body">
+                              <form id="leave-form">
+                                 <div class="mb-3">
+                                    <label for="holiday-name"
+                                       class="form-label">Holiday Name</label>
+                                    <input type="text" class="form-control"
+                                       id="holiday-name"
+                                       placeholder="Enter holiday name"
+                                       required>
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="start-date"
+                                       class="form-label">Start Date</label>
+                                    <input type="date" class="form-control"
+                                       id="leave-start-date" required>
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="end-date" class="form-label">End
+                                       Date</label>
+                                    <input type="date" class="form-control"
+                                       id="leave-end-date" required>
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="leave-type"
+                                       class="form-label">Leave Type</label>
+                                    <select class="form-select" id="leave-type"
+                                       required>
+                                       <option value selected disabled>Select
+                                          leave type</option>
+                                       <option value="planned">Planned</option>
+                                       <option
+                                          value="unplanned">Unplanned</option>
+                                    </select>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button"
+                                       class="btn btn-secondary"
+                                       data-bs-dismiss="modal">Close</button>
+                                    <button type="submit"
+                                       class="btn btn-primary">Apply</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Delete Modal -->
+                  <div class="modal fade" id="delete-modal" tabindex="-1"
+                     role="dialog" aria-labelledby="delete-modal-title"
+                     aria-hidden="true">
+                     <div class="modal-dialog modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title"
+                                 id="delete-modal-title">Confirm Deletion</h5>
+                              <button type="button" class="btn-close"
+                                 data-bs-dismiss="modal"
+                                 aria-label="Close"></button>
+                           </div>
+                           <div class="modal-body text-center"
+                              id="delete-modal-body">
+                              Are you sure you want to delete the event?
+                           </div>
+                           <div class="modal-footer border-0">
+                              <button type="button"
+                                 class="btn btn-secondary rounded-sm"
+                                 data-dismiss="modal"
+                                 id="cancel-button">Cancel</button>
+                              <button type="button"
+                                 class="btn btn-danger rounded-lg"
+                                 id="delete-button">Delete</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </main>
+
+               <script
+                  src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js'></script>
+               <script
+                  src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js'></script>
+               <script
+                  src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js'></script>
+               <script
+                  src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js'></script>
+               <script
+                  src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+               <script
+                  src='https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js'></script>
+               <!-- Script JS -->
+               <script src="./js/script.js"></script>
+               <!--$%analytics%$-->
+            </body>
+         </html>
